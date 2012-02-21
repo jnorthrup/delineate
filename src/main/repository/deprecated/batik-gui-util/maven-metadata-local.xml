@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>deprecated</groupId>
+  <artifactId>batik-gui-util</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20120221193346</lastUpdated>
+  </versioning>
+</metadata>

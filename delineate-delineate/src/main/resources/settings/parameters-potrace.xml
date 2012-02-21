@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<parameters>
+
+  <command>
+    <name>potrace</name>
+    <label>potrace</label>
+    <description>for converting black and white images</description>
+    <option-indicator>--</option-indicator>
+    <svg-optimizer>net.sf.delineate.utility.PotraceSvgOptimizer</svg-optimizer>
+  </command>
+
+  <parameter>
+    <name>svg</name>
+    <optional>false</optional>
+  </parameter>
+
+  <parameter>
+    <name>height</name>
+    <optional>false</optional>
+  </parameter>
+
+  <parameter>
+    <name>width</name>
+    <optional>false</optional>
+  </parameter>
+
+  <parameter>
+    <function>input-file</function>
+    <name>input-file</name>
+    <optional>false</optional>
+    <default>./img/walk.bmp</default>
+    <description>Input filename.</description>
+  </parameter>
+
+  <parameter>
+    <function>output-file</function>
+    <name>output</name>
+    <optional>false</optional>
+    <default>./img/walk.svg</default>
+    <description>Ouput filename.</description>
+  </parameter>
+  
+  <parameter>
+    <name>alphamax</name>
+    <optional>false</optional>
+    <default>1</default>
+    <range>
+      <use-whole-numbers>false</use-whole-numbers>
+      <min>0</min>
+      <max>1.3</max>
+      <step>0.1</step>
+    </range>
+    <description>Corner threshold; smaller values give more corners, larger values more rounded shapes (default 1).</description>
+  </parameter>
+
+  <parameter>
+    <name>invert</name>
+    <optional>true</optional>
+    <enabled>false</enabled>
+    <description>Invert bitmap.</description>
+  </parameter>
+
+  <parameter>
+    <name>turdsize</name>
+    <optional>false</optional>
+    <default>2</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>0</min>
+      <max>50</max>
+      <step>1</step>
+    </range>
+    <description>Suppress speckles of up to this size (default 2).</description>
+  </parameter>
+
+</parameters>
+

@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<parameters>
+  <command>
+    <name>autotrace</name>
+    <label>AutoTrace</label>
+    <description>for converting color images</description>
+    <option-indicator>--</option-indicator>
+    <svg-optimizer>net.sf.delineate.utility.AutotraceSvgOptimizer</svg-optimizer>
+  </command>
+
+  <parameter>
+    <name>background-color</name>
+    <optional>true</optional>
+    <enabled>true</enabled>
+    <default>FFFFFF</default>
+    <description>Background color for the result SVG, for example FFFFFF. No SVG paths are drawn in the background color.</description>
+  </parameter>
+
+  <parameter>
+    <name>centerline</name>
+    <optional>true</optional>
+    <enabled>false</enabled>
+    <description>Trace a region's centerline, rather than its outline.</description>
+  </parameter>
+
+  <parameter>
+    <name>color-count</name>
+    <optional>true</optional>
+    <enabled>false</enabled>
+    <default>256</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>2</min>
+      <max>256</max>
+      <step>1</step>
+    </range>
+    <description>Limit SVG paths to use this many colors, it does not work on gray scale, allowed are 1 to 256.</description>
+  </parameter>
+
+  <parameter>
+    <name>corner-always-threshold</name>
+    <optional>false</optional>
+    <default>60</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>2</min>
+      <max>180</max>
+      <step>2</step>
+    </range>
+    <description>If the angle at a pixel is less than this, it is considered a corner, even if it is within `corner-surround' pixels of another corner; default is 60.</description>
+  </parameter>
+
+  <parameter>
+    <name>corner-surround</name>
+    <optional>false</optional>
+    <default>4</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>1</min>
+      <max>16</max>
+      <step>1</step>
+    </range>
+    <description>Number of pixels on either side of a point to consider when determining if that point is a corner; default is 4.</description>
+  </parameter>
+
+  <parameter>
+    <name>corner-threshold</name>
+    <optional>false</optional>
+    <default>100</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>2</min>
+      <max>180</max>
+      <step>2</step>
+    </range>
+    <description>If a pixel, its predecessor(s), and its successor(s) meet at an angle smaller than this, it's a corner; default is 100.</description>
+  </parameter>
+
+  <parameter>
+    <name>despeckle-level</name>
+    <optional>true</optional>
+    <enabled>true</enabled>
+    <default>10</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>0</min>
+      <max>20</max>
+      <step>1</step>
+    </range>
+    <description>0..20; default is 10.</description>
+  </parameter>
+
+  <parameter>
+    <name>despeckle-tightness</name>
+    <optional>true</optional>
+    <enabled>true</enabled>
+    <default>2.0</default>
+    <range>
+      <use-whole-numbers>false</use-whole-numbers>
+      <min>0.0</min>
+      <max>8.0</max>
+      <step>0.1</step>
+    </range>
+    <description>0.0..8.0; default is 2.0.</description>
+  </parameter>
+
+<!--
+  <parameter>
+    <name>dpi</name>
+    <description>The dots per inch value in the input image, affects scaling of mif
+    output image</description>
+  </parameter>
+
+ -->
+
+  <parameter>
+    <name>error-threshold</name>
+    <optional>false</optional>
+    <default>2.0</default>
+    <range>
+      <use-whole-numbers>false</use-whole-numbers>
+      <min>0.1</min>
+      <max>10.0</max>
+      <step>0.1</step>
+    </range>
+    <description>Subdivide fitted curves that are off by more pixels than this; default is 2.0.</description>
+  </parameter>
+
+  <parameter>
+    <name>filter-iterations</name>
+    <optional>false</optional>
+    <default>4</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>0</min>
+      <max>16</max>
+      <step>1</step>
+    </range>
+    <description>Smooth the curve this many times before fitting; default is 4.</description>
+  </parameter>
+
+  <parameter>
+    <function>input-file</function>
+    <name>input-file</name>
+    <optional>false</optional>
+    <default>./img/walk.bmp</default>
+    <description>Input filename.</description>
+  </parameter>
+<!--
+  <parameter>
+    <name>input-format</name>
+    <description>TGA, PBM, PNM, PGM, PPM or BMP.</description>
+  </parameter>
+
+ -->
+
+  <parameter>
+    <name>line-reversion-threshold</name>
+    <optional>false</optional>
+    <default>0.01</default>
+    <range>
+      <use-whole-numbers>false</use-whole-numbers>
+      <min>0.01</min>
+      <max>0.16</max>
+      <step>0.01</step>
+    </range>
+    <description>If a spline is closer to a straight line than this, weighted by the square of the curve length, keep it a straight line even if it is a list with curves; default is .01.</description>
+  </parameter>
+
+  <parameter>
+    <name>line-threshold</name>
+    <optional>false</optional>
+    <default>1.0</default>
+    <range>
+      <use-whole-numbers>false</use-whole-numbers>
+      <min>1.0</min>
+      <max>20.0</max>
+      <step>1.0</step>
+    </range>
+    <description>If the spline is not more than this far away from the straight line defined by its endpoints, then output a straight line; default is 1.</description>
+  </parameter>
+
+<!--
+   <parameter>
+    <name>list-output-formats</name>
+    <description>print a list of support output formats to stderr.</description>
+  </parameter>
+ -->
+<!--
+   <parameter>
+    <name>list-input-formats</name>
+    <description>print a list of support input formats to stderr.</description>
+  </parameter>
+ -->
+<!--
+  <parameter>
+    <name>log</name>
+    <description>write detailed progress reports to input_name.log.</description>
+  </parameter>
+ -->
+
+  <parameter>
+    <function>output-file</function>
+    <name>output-file</name>
+    <optional>false</optional>
+    <default>./img/walk.svg</default>
+    <description>Ouput filename.</description>
+  </parameter>
+<!--
+  <parameter>
+    <name>output-format</name>
+    <optional>false</optional>
+    <default>svg</default>
+    <description>use format format for the output file eps, ai, p2e, sk, svg, fig,
+swf, emf, mif, er, dxf, epd, pdf, cgm or dr2d can be used.</description>
+  </parameter>
+
+ -->
+  <parameter>
+    <name>preserve-width</name>
+    <optional>true</optional>
+    <enabled>false</enabled>
+    <description>Whether to preserve line width prior to thinning.</description>
+  </parameter>
+
+  <parameter>
+    <name>remove-adjacent-corners</name>
+    <optional>true</optional>
+    <enabled>false</enabled>
+    <description>Remove corners that are adjacent.</description>
+  </parameter>
+
+  <parameter>
+    <name>tangent-surround</name>
+    <optional>false</optional>
+    <default>3</default>
+    <range>
+      <use-whole-numbers>true</use-whole-numbers>
+      <min>1</min>
+      <max>16</max>
+      <step>1</step>
+    </range>
+    <description>Number of points on either side of a point to consider when computing the tangent at that point; default is 3.</description>
+  </parameter>
+
+<!--
+   <parameter>
+    <name>report-progress</name>
+    <description>report tracing status in real time.</description>
+  </parameter>
+ -->
+<!--
+   <parameter>
+    <name>debug-arch</name>
+    <description>print the type of cpu.</description>
+  </parameter>
+ -->
+<!--
+   <parameter>
+    <name>debug-bitmap</name>
+    <description>dump loaded bitmap to input_name.bitmap.</description>
+  </parameter>
+ -->
+<!--
+   <parameter>
+    <name>version</name>
+    <description>print the version number of this program.</description>
+  </parameter>
+ -->
+<!--
+  <parameter>
+    <name>width-weight-factor</name>
+    <optional>true</optional>
+    <enabled>false</enabled>
+    <default>1.0</default>
+    <range>
+      <use-whole-numbers>false</use-whole-numbers>
+      <min>0</min>
+      <max>1</max>
+      <step>0.01</step>
+    </range>
+    <description>Weight factor for fitting the line width.</description>
+  </parameter>
+ -->
+
+</parameters>
+

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<!-- ======================================================================= -->
+<!-- Ant build file for Delineate.                                           -->
+<!-- Please download and install ant from http://jakarta.apache.org/ant/     -->
+<!-- ======================================================================= -->
+<project name="Delineate" default="run" basedir=".">
+  <property name="name" value="delineate"/>
+  <property name="version" value="0.6"/>
+  <property name="package-name" value="${name}-${version}"/>
+  <property name="main-class" value="net.sf.delineate.DelineateApplication"/>
+
+  <!-- Replace this with classic/modern/jikes as you like -->
+  <property name="build.compiler" value="modern"/>
+
+  <property name="src" value="src"/>
+  <property name="lib" value="lib"/>
+  <property name="params" value="parameters.xml"/>
+  <property name="build" value="../build"/>
+  <property name="temp" value="../temp"/>
+  <property name="deploy" value="${name}/${version}"/>
+  <property name="dist" value="../dist"/>
+  <property name="img" value="./img"/>
+
+
+  <target name="clean" description="Delete the build, and dist directory trees">
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+    <delete dir="${temp}"/>
+  </target>
+
+  <target name="init" description="Create directories">
+    <mkdir dir="${build}"/>
+    <mkdir dir="${dist}"/>
+    <mkdir dir="${temp}/${name}/${version}"/>
+  </target>
+
+
+  <target name="compile" depends="init" description="Build Delineate">
+    <javac destdir="${build}" debug="on">
+      <src path="${src}"/>
+      <classpath>
+        <fileset dir="${lib}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+
+  <target name="jar" depends="compile" description="Create a .jar archive containing Delineate">
+    <jar jarfile="${temp}/${deploy}/${name}.jar" basedir="${build}" includes="**">
+      <manifest>
+        <attribute name="Main-Class" value="${main-class}"/>
+        <attribute name="Class-Path" value="./lib/batik-swing.jar
+ ./lib/batik-gvt.jar
+ ./lib/batik-bridge.jar
+ ./lib/batik-ext.jar
+ ./lib/batik-util.jar
+ ./lib/batik-svg-dom.jar
+ ./lib/batik-dom.jar
+ ./lib/batik-css.jar
+ ./lib/batik-gui-util.jar
+ ./lib/xerces_2_5_0.jar
+ ./lib/xml-apis.jar
+ ./lib/batik-xml.jar
+ ./lib/batik-script.jar
+ ./lib/batik-awt-util.jar
+ ./lib/batik-parser.jar
+ ./lib/jiu.jar"/>
+      </manifest>
+    </jar>
+  </target>
+
+
+  <target name="dist" depends="jar" description="Creates distribution">
+    <copy todir="${temp}/${deploy}">
+      <fileset dir="."/>
+    </copy>
+
+    <zip destfile="${dist}/${package-name}.zip" basedir="${temp}"/>
+
+    <tar tarfile="${dist}/${package-name}.tar" basedir="${temp}"/>
+    <gzip zipfile="${dist}/${package-name}.tar.gz" src="${dist}/${package-name}.tar"/>
+    <delete file="${dist}/${package-name}.tar"/>
+  </target>
+
+
+  <target name="run" depends="compile">
+    <java classname="net.sf.delineate.DelineateApplication" fork="true">
+      <classpath>
+        <pathelement path="${build}"/>
+        <fileset dir="${lib}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+      <arg value="${params}"/>
+    </java>
+  </target>
+
+</project>
+
+

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>delineate-parent</artifactId>
+    <groupId>delineate</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <groupId>delineate</groupId>
+  <artifactId>delineate-delineate</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>delineate-delineate</name><description>delineate of delineate Terraformed... by jim@keyframe... on x86_64 x86_64 GNU/Linux... for  delineate... </description>
+  <url>http://keyframe/delineate</url><scm><tag>HEAD</tag></scm>
+  <!-- dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+--> <repositories> <repository> <id>delineate-legacy</id> <name>delineate-Repo</name> <url> file://${basedir}/../src/main/repository </url> <layout>default</layout> </repository> </repositories> <dependencies> <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-entitymanager</artifactId> <version>3.3.2.GA</version> </dependency> <dependency> <groupId>javax.transaction</groupId> <artifactId>jta</artifactId> <version>1.0.1B</version> </dependency> <dependency> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty-management</artifactId> <version>6.1H.8</version> </dependency> <dependency> <groupId>com.thoughtworks.xstream</groupId> <artifactId>xstream</artifactId> <version>1.3</version> </dependency> <dependency> <artifactId> batik-awt-util </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-bridge </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-css </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-dom </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-ext </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-extension </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-gui-util </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-gvt </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-parser </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-script </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-svg-dom </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-swing </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-util </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> batik-xml </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> <dependency> <artifactId> jiu </artifactId> <groupId> deprecated </groupId> <version> 1.0-SNAPSHOT </version> </dependency> </dependencies> <build> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> <configuration> <source>1.5</source> <target>1.5</target> <fork>true</fork> <meminitial>1024m</meminitial> <maxmem>1024m</maxmem> </configuration> </plugin> </plugins> </build> <reporting> <plugins> <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>javacc-maven-plugin</artifactId> <version>2.4.1</version> </plugin> </plugins> </reporting> </project>

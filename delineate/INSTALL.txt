@@ -1,0 +1,89 @@
+
+D E L I N E A T E   -   R A S T E R    T 0    S V G    C O N V E R T E R
+
+
+Installing - GNU/Linux & Mac OS X
+---------------------------------
+
+1) To run Delineate, you will need to install the following software:
+
+     AutoTrace 0.31.1
+     http://autotrace.sourceforge.net/
+
+     potrace 1.1
+     http://potrace.sourceforge.net/
+
+     Java J2SE 1.4.1 or 1.4.2
+     http://java.sun.com/j2se/corejava/
+
+
+2) Set your JAVA_HOME variable to the location where you have Java
+   installed.
+
+
+3) Extract delineate-0.5.tar.gz on to your machine
+
+
+4) To run:
+
+     cd delineate/0.5
+     chmod a+x delineate.sh
+     ./delineate.sh
+
+5) When you run a conversion for the first time, you'll be prompted to select
+   the location of the autotrace or potrace application file.
+   You must have these applications installed (see step 1).
+
+   In the file chooser dialog window select the appropriate file:
+      <autotrace install dir>/autotrace or
+      <potrace install dir>/potrace
+
+Installing - Windows
+--------------------
+
+1) To run Delineate, you will need to install the following software:
+
+     AutoTrace 0.31.1
+     http://autotrace.sourceforge.net/
+
+     potrace 1.1
+     http://potrace.sourceforge.net/
+
+     Java J2SE 1.4.1 or 1.4.2
+     http://java.sun.com/j2se/corejava/
+
+
+2) Set your JAVA_HOME environment variable to the location where you
+   have Java installed.
+
+   In Windows XP you can add this environment variable by going to:
+
+     Start -> Settings
+           -> Control Panel
+           -> System
+           -> Advanced
+           -> Environment Variables
+
+   Click the New button:
+     - enter the variable name as JAVA_HOME, and
+     - enter the variable value as the location where Java is installed,
+       for example: C:\Program Files\J2SDK_1.4.1_02
+
+
+5) Extract delineate-0.5.zip on to your machine
+
+
+6) To run:
+
+   Go to the directory <install dir>/delineate/0.5
+   double click on or run the file: delineate.bat
+
+
+7) When you run a conversion for the first time, you'll be prompted to select
+   the location of the autotrace or potrace application files. You must have
+   these applications installed (see step 1).
+
+   In the file chooser dialog window select the appropriate file:
+      <autotrace install dir>/autotrace.exe or
+      <potrace install dir>/potrace.exe
+
